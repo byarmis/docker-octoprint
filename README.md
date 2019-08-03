@@ -7,12 +7,12 @@ Note that I developed and used this on a desktop computer.  It should work on a 
 ```
 git clone https://github.com/byarmis/docker-octoprint.git && cd docker-octoprint
 
-docker-compose up --detach
+docker-compose up
 ```
 
 You can then go to `http://localhost:5000` to view the status and the stream.
 
-You can display the logs using `docker-compose logs -f`.
+If you instead start Octoprint by running `docker-compose up --detach`, you can display the logs using `docker-compose logs -f`.
 
 To stop the running containers, run `docker-compose down`.  This can be verified by running `docker ps`.
 

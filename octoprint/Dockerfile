@@ -24,5 +24,7 @@ RUN git clone --branch master https://github.com/foosel/OctoPrint.git /opt/octop
  && virtualenv venv                                                                  \
  && ./venv/bin/python setup.py install
 
+EXPOSE 5000
+
 CMD ["/opt/octoprint/venv/bin/octoprint", "serve"]
 

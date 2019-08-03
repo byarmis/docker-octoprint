@@ -4,15 +4,29 @@ services:
         container_name: octoprint
         build: ./octoprint/
         ports:
-          - 5000:5000
+            - "5000:5000"
         devices:
-          - /dev/ttyACM0:/dev/ttyACM0
+            - /dev/ttyACM0:/dev/ttyACM0
         volumes:
-          - ./config:/home/octoprint/.octoprint
+            - ./config:/home/octoprint/.octoprint
 
     mjpg:
+        container_name: mjpg
         build: ./streamer/
         ports:
-            - 8080:8080
+            - "8080:8080"
         devices:
             - /dev/video0:/dev/video0
+
+    haproxy:
+        container_name: haproxy
+        depends_on:
+            - octoprint
+            - mjpg
+        build: ./haproxy/
+        ports:
+            - "80:80"
+        links:
+            - octoprint
+            - mjpg
+

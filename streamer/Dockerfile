@@ -2,7 +2,6 @@ FROM ubuntu
 
 LABEL maintainer="ben@yarm.is"
 
-# Run updates and install base libs & tools
 RUN apt-get -y update                  \
  && apt-get -y install cmake           \
                        build-essential \
