@@ -11,8 +11,6 @@ services:
           - ./config:/home/octoprint/.octoprint
 
     mjpg:
-        privileged: true
-        container_name: streamer
         build: ./streamer/
         ports:
             - 8080:8080

@@ -20,7 +20,7 @@ RUN git clone https://github.com/jacksonliam/mjpg-streamer.git \
 
 RUN echo "#!/bin/bash" >> start.sh \
  && echo "export LD_LIBRARY_PATH=\"/mjpg-streamer/mjpg-streamer-experimental\"" >> start.sh \
- && echo "/mjpg-streamer/mjpg-streamer-experimental/mjpg_streamer --input \"/mjpg-streamer/mjpg-streamer-experimental/input_uvc.so\" --output \"/mjpg-streamer/mjpg-streamer-experimental/output_http.so\"" >> start.sh \
+ && echo "/mjpg-streamer/mjpg-streamer-experimental/mjpg_streamer --input \"/mjpg-streamer/mjpg-streamer-experimental/input_uvc.so -r 1280x720\" --output \"/mjpg-streamer/mjpg-streamer-experimental/output_http.so\"" >> start.sh \
  && chmod +x start.sh
 
 EXPOSE 8080

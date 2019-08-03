@@ -1,36 +1,22 @@
-# OctoPrint-docker [![Build Status](https://travis-ci.org/OctoPrint/docker.svg?branch=master)](https://travis-ci.org/OctoPrint/docker)
+This repository contains everything you need to run [Octoprint](https://github.com/foosel/OctoPrint) in a Docker environment along with a USB webcam streaming.
 
-This repository contains everything you need to run [Octoprint](https://github.com/foosel/OctoPrint) in a docker environment.
+Note that I developed and used this on a desktop computer.  It should work on a Raspberry Pi, but I can't really make any guarantees.
 
 # Getting started
 
 ```
-git clone https://github.com/OctoPrint/docker.git octoprint-docker && cd octoprint-docker
+git clone https://github.com/byarmis/docker-octoprint.git && cd docker-octoprint
 
-# search for you 3D printer serial port (usually it's /dev/ttyUSB0 or /dev/ttyACM0)
-ls /dev | grep tty
-
-// edit the docker-compose file to set your 3D printer serial port
-vi docker-compose.yml
-
-docker-compose up -d
+docker-compose up --detach
 ```
 
-You can then go to http://localhost:5000
+You can then go to `http://localhost:5000` to view the status and the stream.
 
-You can display the log using `docker-compose logs -f`
+You can display the logs using `docker-compose logs -f`.
 
-## Without docker-compose
-```
-docker run -d -v ./config:/home/octoprint/.octoprint --device /dev/ttyACM0:/dev/ttyACM0 -p 5000:5000 --name octoprint octoprint/octoprint
-```
+To stop the running containers, run `docker-compose down`.  This can be verified by running `docker ps`.
 
-# Additional tools
+# Options
 
-## FFMPEG
+Depending on the webcam that you have, you can change the resolution in `streamer/Dockerfile` by changing the `-r 1280x720` bit of things.
 
-Octoprint allows you to make timelapses using an IP webcam and ffmpeg. It is installed in `/opt/ffmpeg`
-
-## Cura Engine
-
-Octoprint allows you to import .STL files and slice them directly in the application. For this you need to upload the profiles that you want to use (you can export them from Cura). Cura Engine is installed in `/opt/cura/CuraEngine`.
