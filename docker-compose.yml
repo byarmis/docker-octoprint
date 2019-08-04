@@ -20,9 +20,6 @@ services:
 
     haproxy:
         container_name: haproxy
-        depends_on:
-            - octoprint
-            - mjpg
         build: ./haproxy/
         ports:
             - "80:80"
