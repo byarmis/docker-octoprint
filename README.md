@@ -10,7 +10,7 @@ git clone https://github.com/byarmis/docker-octoprint.git && cd docker-octoprint
 docker-compose up
 ```
 
-You can then go to `http://localhost:5000` to view the status and the stream.
+You can then go to `http://localhost` to view the status and the stream.
 
 If you instead start Octoprint by running `docker-compose up --detach`, you can display the logs using `docker-compose logs -f`.
 
