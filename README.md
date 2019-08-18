@@ -10,9 +10,7 @@ git clone https://github.com/byarmis/docker-octoprint.git && cd docker-octoprint
 docker-compose up
 ```
 
-You can then go to `http://localhost` to view the status and the stream.
-
-Set the "Stream URL" to be `http://localhost/webcam/?action=stream`
+You can then go to `http://localhost` to view the status and the stream (after setting the "Stream URL" to be `/webcam/?action=stream`).
 
 If you instead start Octoprint by running `docker-compose up --detach`, you can display the logs using `docker-compose logs -f`.
 
